@@ -89,7 +89,8 @@ def download_bse_equity_bhavcopy(date_str: str, output_dir: Union[str, Path]) ->
     download_file(url, file_path)
     
     # Rename file
-    final_filename = date_obj.strftime("%d%b%Y").upper() + ".csv"
+    # final_filename = date_obj.strftime("%d%b%Y").upper() + ".csv"
+    final_filename = date_obj.strftime("%Y%m%d") + ".csv"
     final_path = output_dir / final_filename
     
     # Compress the file to .csv.gz to save space
