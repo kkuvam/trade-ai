@@ -135,7 +135,8 @@ def download_nse_equity_bhavcopy(date_str: str, output_dir: Union[str, Path]) ->
     extracted = extract_file(zip_path, output_dir)
 
     # Rename file
-    final_filename = date_obj.strftime("%d%b%Y").upper() + ".csv"
+    # final_filename = date_obj.strftime("%d%b%Y").upper() + ".csv"
+    final_filename = date_obj.strftime("%Y%m%d") + ".csv"
     final_path = output_dir / final_filename
     Path(extracted).rename(final_path)
 
@@ -181,7 +182,7 @@ if __name__ == "__main__":
     # Example usage
     output_dir = "../data/nse/equity/2024"
     start_date = "01JAN2024"
-    end_date = "31DEC2024"
+    end_date = "31Dec2024"
     
     downloaded_files = download_bhavcopy_range(start_date, end_date, output_dir)
     print(f"Downloaded {len(downloaded_files)} files")
